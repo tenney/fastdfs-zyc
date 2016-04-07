@@ -23,7 +23,6 @@ import java.util.List;
 @Service
 public class FileDataServiceImpl extends BaseService implements FileDataService {
 
-    @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Fdfs_file> getFileListByGroupName(String groupName) {
         List<Fdfs_file> files = new ArrayList<Fdfs_file>();
@@ -37,7 +36,6 @@ public class FileDataServiceImpl extends BaseService implements FileDataService 
         return files;
     }
 
-    @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public DownloadFileRecord getDownloadFileRecordByIpAndFileId(String ip, String fileId) {
         DownloadFileRecord downloadFileRecord=new DownloadFileRecord();
@@ -53,7 +51,6 @@ public class FileDataServiceImpl extends BaseService implements FileDataService 
 
     }
 
-    @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void saveDF(DownloadFileRecord downloadFileRecord) {
         Session session = getSession();

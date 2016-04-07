@@ -50,7 +50,6 @@ public class JobServiceImpl extends BaseService implements JobService {
 
 
 
-    @Override
     @Scheduled(cron = "0 0/1 * * * ?")
     @Transactional(propagation = Propagation.REQUIRED)
     public void updateGroupByMinute() throws IOException, MyException, JSchException {
@@ -64,7 +63,6 @@ public class JobServiceImpl extends BaseService implements JobService {
         logger.info("group minute data upated end");
     }
 
-    @Override
     @Scheduled(cron = "0 0 0/1 * * ?")
     @Transactional(propagation = Propagation.REQUIRED)
     public void updateGroupByHour() throws IOException, MyException, JSchException{
@@ -77,7 +75,6 @@ public class JobServiceImpl extends BaseService implements JobService {
         logger.info("group hour data upated end");
     }
 
-    @Override
     @Scheduled(cron = "0 0 0 0/1 * ?")
     @Transactional(propagation = Propagation.REQUIRED)
     public void updateGroupByDay() throws IOException, MyException, JSchException {
@@ -371,7 +368,6 @@ public class JobServiceImpl extends BaseService implements JobService {
     /**
      * 每天定时读取logger日志，并入库
      */
-    @Override
     @Scheduled(cron = "0 0 01 * * ?")
     public void readDataFromLoggerToDataBase()throws  JSchException{
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");

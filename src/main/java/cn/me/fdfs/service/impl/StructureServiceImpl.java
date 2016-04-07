@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Service
 public class StructureServiceImpl extends BaseService implements StructureService {
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Line> listStorageTopLine(String ip) {
         List<Line> lines = new ArrayList<Line>();
@@ -40,7 +40,7 @@ public class StructureServiceImpl extends BaseService implements StructureServic
 
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Line> listStorageAboutFile(String ip) {
         List<Line> lines = new ArrayList<Line>();

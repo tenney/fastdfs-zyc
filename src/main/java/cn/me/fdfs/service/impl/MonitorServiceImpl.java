@@ -36,7 +36,6 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
     private static final Logger logger = LoggerFactory
             .getLogger(MonitorServiceImpl.class);
 
-    @Override
     public List<Group> listGroupInfo() throws IOException, MyException,JSchException {
         List<Group> result = new ArrayList<Group>();
         // noinspection ConstantConditions
@@ -105,7 +104,6 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
     }
 
     @SuppressWarnings("unchecked")
-    @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Group> listGroups() throws IOException, MyException {
         List<Group> groups = new ArrayList<Group>();
@@ -121,7 +119,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
     }
 
     @SuppressWarnings("unchecked")
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Storage> listStorage(String groupName) throws IOException,
             MyException {
@@ -138,7 +136,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
     }
 
     @SuppressWarnings("unchecked")
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Storage> listStorageTop(String ipaddr) throws IOException,
             MyException {
@@ -153,7 +151,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
 
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Line> getNetTrafficLines(String ip, String start, String end) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -219,7 +217,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
         return lines;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Group> getAllGroups() throws IOException, MyException {
         List<Group> result = new ArrayList<Group>();
@@ -232,7 +230,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
         return result;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public Line getListStoragesInfo(String ip, String startTime, String endTime)
             throws IOException, MyException {
@@ -266,7 +264,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
         return sc;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Line> listStorageLines(String groupName) throws IOException,
             MyException {
@@ -276,8 +274,8 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
         for (Storage s : storages) {
             Query query = session
                     .createQuery("from Storage s where s.ipAddr=:ip order by s.created desc");
-            List<Storage> results = query.setParameter("ip", s.getIpAddr())
-                    .setMaxResults(10).list();
+            @SuppressWarnings("unchecked")
+			List<Storage> results = query.setParameter("ip", s.getIpAddr()).setMaxResults(10).list();
             Line line = new Line(s.getIpAddr()+"mem使用率");
             Line line1 = new Line(s.getIpAddr()+"cpu使用率");
             for (int i = results.size() - 1; i >= 0; i--) {
@@ -295,7 +293,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
         return lines;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public StorageHour getStorageByIp(String ip) throws IOException,
             MyException {
@@ -311,7 +309,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
         return storages;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Line> getListFileCountStorage(String ip, String startTime,
                                               String endTime) throws IOException, MyException {
@@ -360,7 +358,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
         return lines;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public void saveFile(Fdfs_file f) throws IOException, MyException {
         Session session = getSession();
@@ -368,7 +366,7 @@ public class MonitorServiceImpl extends BaseService implements MonitorService {
         logger.info("fdfs_file sava as" + f.getFile_id());
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<GroupDay> getGroupsByName(String groupName) throws IOException,
             MyException {

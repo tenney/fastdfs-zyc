@@ -30,7 +30,7 @@ import java.util.List;
 public class WarningServiceImpl extends BaseService implements WarningService {
     private static final Logger logger = LoggerFactory
             .getLogger(WarningServiceImpl.class);
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public void updateWarning(WarningData wd) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -38,7 +38,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         session.saveOrUpdate(wd);
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<WarningData> findWarning() throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -50,7 +50,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         return warningDatas;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<WarningData> findWarning(WarningData wd,PageInfo pageInfo) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -68,7 +68,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         return warningDatas;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public WarningData findById(String id) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -78,7 +78,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         return wd;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public void delWarning(String id) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -88,7 +88,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
        session.delete(wd);
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<WarningData> findByIp(String ip) throws IOException, MyException {
          //To change body of implemented methods use File | Settings | File Templates.
@@ -100,7 +100,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         return warningDatas;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<WarningUser> findWarUser() throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -112,7 +112,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         return warningUsers;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<WarningUser> findWarUser(WarningUser wu,PageInfo pageInfo) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -130,7 +130,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         return warningUsers;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public WarningUser findUserId(String id) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -140,7 +140,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         return wu;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public void delWarUser(String id) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -150,7 +150,7 @@ public class WarningServiceImpl extends BaseService implements WarningService {
         session.delete(wu);
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public void updateWarUser(WarningUser wu) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.

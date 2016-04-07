@@ -26,7 +26,7 @@ import java.util.Map;
 @Service
 public class TestModuleServiceImpl extends BaseService implements TestModuleService {
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<Fdfs_file> getAllFileList() {
         Session session = getSession();
@@ -35,7 +35,7 @@ public class TestModuleServiceImpl extends BaseService implements TestModuleServ
 
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public Fdfs_file getFileByFileId(String fileId) {
         Session session = getSession();
@@ -49,14 +49,14 @@ public class TestModuleServiceImpl extends BaseService implements TestModuleServ
 
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public void saveFastFile(Fdfs_file f) {
         Session session = getSession();
         session.saveOrUpdate(f);
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public  Map<String,Object[]> getAllFileListByTen(String ip) {
 
@@ -88,7 +88,7 @@ public class TestModuleServiceImpl extends BaseService implements TestModuleServ
         return map;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public Line getAllFileListForPie(String ip) {
         Session session = getSession();
@@ -105,7 +105,7 @@ public class TestModuleServiceImpl extends BaseService implements TestModuleServ
         return sc;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<Fdfs_file> getAllFileListByPage(String pageNum, String pageSize,String keyForSearch) {
         Session session = getSession();
@@ -120,7 +120,7 @@ public class TestModuleServiceImpl extends BaseService implements TestModuleServ
         return query.list();
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public int getCountDownLoadFile(String keyForSearch) {
         Session session = getSession();

@@ -24,7 +24,7 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl  extends BaseService implements UserService {
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public List<User> userlist(String username) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -39,7 +39,7 @@ public class UserServiceImpl  extends BaseService implements UserService {
         return users;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public void updateOrSaveUser(User user) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -47,7 +47,7 @@ public class UserServiceImpl  extends BaseService implements UserService {
         session.saveOrUpdate(user);
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public User findById(String id) throws IOException, MyException {
       //To change body of implemented methods use File | Settings | File Templates.
@@ -57,7 +57,7 @@ public class UserServiceImpl  extends BaseService implements UserService {
         return u;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public void delUser(String id) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -67,7 +67,7 @@ public class UserServiceImpl  extends BaseService implements UserService {
         session.delete(u);
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public boolean login(String name, String password) throws IOException, MyException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -86,7 +86,7 @@ public class UserServiceImpl  extends BaseService implements UserService {
         return res;
     }
 
-    @Override
+    
     @Transactional(propagation = Propagation.REQUIRED)
     public User findByName(String name) throws IOException, MyException {
          //To change body of implemented methods use File | Settings | File Templates.

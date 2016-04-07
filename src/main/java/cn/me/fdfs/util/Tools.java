@@ -64,7 +64,7 @@ public class Tools {
         return result;
     }
     public static String getRootPath() {
-        String classPath = Tools.class.getClassLoader().getResource("/").getPath();
+        String classPath = Tools.class.getResource("/").getPath();
         String rootPath  = "";
         //windows下
         if("\\".equals(File.separator)){
@@ -79,7 +79,7 @@ public class Tools {
         return rootPath;
     }
     public static String getClassPath(){
-        String classPath = Tools.class.getClassLoader().getResource("/").getPath();
+        String classPath = Tools.class.getResource("/").getPath();
 
         //windows下
         if("\\".equals(File.separator)){
